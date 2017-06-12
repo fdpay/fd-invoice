@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <button id="btnInvoice">Generate Invoice</button>
+    <p>Parameter Support by fd-invoice.</p>
+    <p>generateInvoice(api,data); this need to be called.</p>
+    <ul>
+        <li>api : invoice.html</li>
+        <li>data : mydata</li>
+    </ul>
+    <p>Simply copy paste this code and enjoy generating invoice.</p>
+    <pre style="background:#ececec;border:1px solid #808080;border-radius:3px;">
+
+        var mydata = {
+            id: "INV00001",                 //invoice id
+            dt: "01/02/2017",               //invoice date
+            symbol: "Rs",                   //currency symbol
+            ttlAmt: "1410",                 //invoice total amount
+            subTtl: "1500",                 //sub total amount of cart products
+            shippingAmt: "50",              //shipping amounnt
+            discountAmt: "200",             //discount amount (if any or else put "0")
+            disCode: "NV200",               //discount code (if any or else put  "NOCODE")
+            taxAmt: "50",                   //local taxes charged
+            taxPer: "2%",                   //how much tax per you have charged mention it.
+            serviceCharge: "10",            //service charge total if any
+            servicePer: "1%",               //how much service charge you have charged
+            amtDue: "1000",                 //amount due.
+            amtPaid: "410",                 //amount paid by buyer.
+            items: [                        // List of line items array
+                {  code: "SKU98732",            //Item code 
+                   name: "Sample Testing 01",   //Product Name 
+                   rate: "100",                 //Rate per unit price 
+                   qty: "1",                    //quantity ordered
+                   price: "100"                 // quantity * rates
+                },
+                                                //multiple products
+                { code: "SKU45732", name: "Sample Testing 02", rate: "200", qty: "2", price: "400" },
+                { code: "SKU98782", name: "Sample Testing 03", rate: "300", qty: "2", price: "600" },
+                { code: "SKU98452", name: "Sample Testing 04", rate: "400", qty: "1", price: "400" },
+            ],
+            header: "PREPAID INVOICE",          //Invoice Header (CASH ON DELIVERY, UNPAID INVOICE etc)
+            logoUrl: "http://namkeenvilla.com/img/logo.png",    //your logo url
+            //seller info
+            seller: { name: "Namkeenvilla", add1: "451 New Ext.", add2: "Bhopal M.P", email: "namkeenvilla@gmail.com", phone: "+91-9407393303" },
+            //buyer info
+            buyer: { name: "JB Group", add1: "451 Usha nagar ext", add2: "Indore M.P 452009", email: "jbgroup01@gmail.com", phone: "+91-9039293303" },
+            //terms and condition
+            footer: [
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." },
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." },
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." },
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." },
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." }
+            ]
+        }
+
+        generateInvoice("invoice.html",mydata);
+
+    </pre>
+
+    <br />
+
+    <script>
+        var _$_3e95 = ["open", "mydata"]; function generateInvoice(api, data) { var w = window[_$_3e95[0]](api); w[_$_3e95[1]] = data }
+    </script>
+    <script>
+        var mydata = {
+            id: "INV00001",
+            dt: "01/02/2017",
+            symbol: "Rs",
+            ttlAmt: "1410",
+            subTtl: "1500",
+            shippingAmt: "50",
+            discountAmt: "200",
+            disCode: "",
+            taxAmt: "50",
+            taxPer: "2%",
+            serviceCharge: "10",
+            servicePer: "1%",
+            amtDue: "1000",
+            amtPaid: "410",
+            items: [
+                { code: "SKU98732", name: "Sample Testing 01", rate: "100", qty: "1", price: "100" },
+                { code: "SKU45732", name: "Sample Testing 02", rate: "200", qty: "2", price: "400" },
+                { code: "SKU98782", name: "Sample Testing 03", rate: "300", qty: "2", price: "600" },
+                { code: "SKU98452", name: "Sample Testing 04", rate: "400", qty: "1", price: "400" },
+            ],
+            header: "PREPAID INVOICE",
+            logoUrl: "http://namkeenvilla.com/img/logo.png",
+            seller: { name: "Namkeenvilla", add1: "451 New Ext.", add2: "Bhopal M.P", email: "namkeenvilla@gmail.com", phone: "+91-9407393303" },
+            buyer: { name: "JB Group", add1: "451 Usha nagar ext", add2: "Indore M.P 452009", email: "jbgroup01@gmail.com", phone: "+91-9039293303" },
+            footer: [
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." },
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." },
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." },
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." },
+                { "txt": "A finance charge of 1.5% will be made on unpaid balances after 30 days." }
+            ]
+        }
+        document.getElementById("btnInvoice").addEventListener("click", function () {
+            generateInvoice("invoice.html",mydata);
+        }, false);
+
+        document.getElementsByTagName('pre').innerHTML = mydata;
+        //function generateInvoice(api, data)
+        //{
+        //    var w = window.open(api);
+        //    w.mydata = data;
+        //}
+    </script>
+</body>
+
+</html>
